@@ -1,12 +1,12 @@
 import subprocess
-from Windows.winMacChanger import *
+from Windows_pack.winMacChanger import *
 
 def mac_change(os_version):
     if os_version == 'Windows':
         winMacChanger()
     if os_version == 'Linux':
         print('In Linux')
-    if os_version == 'MacOS':
+    if os_version == 'Darwin':
         print('In MacOS')
         
 def restart(os_version):
@@ -14,7 +14,7 @@ def restart(os_version):
         subprocess.run('cls', shell=True)
     if os_version == 'Linux':
         subprocess.run('clear', shell=True)
-    if os_version == 'MacOS':
+    if os_version == 'Darwin':
         subprocess.run('cls', shell=True)
 
 def toMenu(os_version):
@@ -42,7 +42,7 @@ def main():
     print('     [4] ')
     print('     [5] Exit')
     param = input('Option: ')
-    os_version = 'Windows'
+    os_version = platform.system()
     if param == '1':
         mac_change(os_version)
     elif param == '5':
