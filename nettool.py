@@ -1,13 +1,15 @@
 import subprocess
 from Windows_pack.winMacChanger import *
+from Linux_pack.linuxMacChanger import *
+from MacOS_pack.macMacChanger import *
 
 def mac_change(os_version):
     if os_version == 'Windows':
         winMacChanger()
     if os_version == 'Linux':
-        print('In Linux')
+        linuxMacChanger()
     if os_version == 'Darwin':
-        print('In MacOS')
+        macMacChanger()
         
 def restart(os_version):
     if os_version == 'Windows':
@@ -43,11 +45,12 @@ def main():
     print('     [5] Exit')
     param = input('Option: ')
     os_version = platform.system()
+    #restart(os_version)
     if param == '1':
         mac_change(os_version)
     elif param == '5':
         print('\nGoodbye (´• ω •)\n')
-        return 0
+        raise SystemExit(0)
     else:
         restart(os_version)
         main()

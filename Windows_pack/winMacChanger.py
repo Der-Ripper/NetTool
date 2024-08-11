@@ -12,6 +12,12 @@ def winMacChanger():
     else:
         interfaces = interfaces.split('\n')[3:-2]
         print(interfaces)
+        names = []
+        for i in interfaces:
+            i = '      '.join(i.split('      ')[3:])
+            print(i)
+            names.append(i)
+        print(names)
 
 
 # netsh interface show interface - показ интерфейсов
